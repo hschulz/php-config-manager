@@ -1,0 +1,25 @@
+{
+    "name": "hschulz/configuration-manager",
+    "description": "Description of project ConfigurationManager.",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Hauke Schulz",
+            "email": "hauke27@gmail.com"
+        }
+    ],
+    "require": {
+        "hschulz/io-streams": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "hschulz\\Config\\": "src/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "apcu-autoloader": true
+    }
+}
