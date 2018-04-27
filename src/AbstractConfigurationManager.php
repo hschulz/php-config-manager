@@ -2,15 +2,13 @@
 
 namespace hschulz\Config;
 
-use \hschulz\Config\ConfigurationManager;
 use \ArrayObject;
 
 /**
  *
  */
-abstract class AbstractConfigurationManager
-    extends ArrayObject
-        implements ConfigurationManager {
+abstract class AbstractConfigurationManager extends ArrayObject implements ConfigurationManager
+{
 
     /**
      *
@@ -22,7 +20,8 @@ abstract class AbstractConfigurationManager
      *
      * @param string $environment
      */
-    public function __construct(string $environment) {
+    public function __construct(string $environment)
+    {
         parent::__construct();
         $this->environment = $environment;
     }
@@ -30,7 +29,8 @@ abstract class AbstractConfigurationManager
     /**
      *
      */
-    public function __destruct() {
+    public function __destruct()
+    {
         $this->writeConfiguration();
     }
 
@@ -38,7 +38,8 @@ abstract class AbstractConfigurationManager
      *
      * @return string
      */
-    public function getEnvironment(): string {
+    public function getEnvironment(): string
+    {
         return $this->environment;
     }
 
@@ -47,7 +48,8 @@ abstract class AbstractConfigurationManager
      * @param string $name
      * @return void
      */
-    public function setEnvironment(string $name): void {
+    public function setEnvironment(string $name): void
+    {
         $this->environment = $name;
     }
 

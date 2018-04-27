@@ -2,13 +2,13 @@
 
 namespace hschulz\Config\Tests;
 
-use \PHPUnit\Framework\TestCase;
 use \hschulz\Config\AbstractConfigurationManager;
+use \PHPUnit\Framework\TestCase;
 
-class AbstractConfigurationManagerTest extends TestCase {
-
-    public function testConcreteImplementation() {
-
+class AbstractConfigurationManagerTest extends TestCase
+{
+    public function testConcreteImplementation()
+    {
         $stub = $this->getMockForAbstractClass(
             AbstractConfigurationManager::class,
             ['testing']

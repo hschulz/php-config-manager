@@ -2,17 +2,17 @@
 
 namespace hschulz\Config;
 
-use \hschulz\Config\AbstractConfigurationManager;
-use \hschulz\IOStreams\JSONInputStream;
-use \hschulz\IOStreams\JSONOutputStream;
 use \hschulz\IOStreams\FileInputStream;
 use \hschulz\IOStreams\FileOutputStream;
+use \hschulz\IOStreams\JSONInputStream;
+use \hschulz\IOStreams\JSONOutputStream;
 use \hschulz\IOStreams\WriteModes;
 
 /**
  *
  */
-class JSONConfigurationManager extends AbstractConfigurationManager {
+class JSONConfigurationManager extends AbstractConfigurationManager
+{
 
     /**
      *
@@ -25,7 +25,8 @@ class JSONConfigurationManager extends AbstractConfigurationManager {
      * @param string $file
      * @param string $environment
      */
-    public function __construct(string $file, string $environment) {
+    public function __construct(string $file, string $environment)
+    {
         parent::__construct($environment);
         $this->file = $file;
         $this->readConfiguration();
@@ -35,8 +36,8 @@ class JSONConfigurationManager extends AbstractConfigurationManager {
      *
      * @return bool
      */
-    public function readConfiguration(): bool {
-
+    public function readConfiguration(): bool
+    {
         $isRead = false;
 
         $json = new JSONInputStream(
@@ -59,8 +60,8 @@ class JSONConfigurationManager extends AbstractConfigurationManager {
      *
      * @return bool
      */
-    public function writeConfiguration(): bool {
-
+    public function writeConfiguration(): bool
+    {
         $json = new JSONOutputStream(
             new FileOutputStream(
                 $this->file,

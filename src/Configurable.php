@@ -2,13 +2,12 @@
 
 namespace hschulz\Config;
 
-use \hschulz\Config\ConfigurationManager;
-
 /**
  * This interface describes the methods to get and set a configuration handler
  * for an implementing class therefore making it configurable.
  */
-interface Configurable {
+interface Configurable
+{
 
     /**
      *

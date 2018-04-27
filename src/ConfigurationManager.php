@@ -5,7 +5,8 @@ namespace hschulz\Config;
 /**
  *
  */
-interface ConfigurationManager {
+interface ConfigurationManager
+{
 
     /**
      *
