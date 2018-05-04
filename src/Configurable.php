@@ -10,15 +10,17 @@ interface Configurable
 {
 
     /**
+     * Sets the configuration manager.
      *
-     * @param ConfigurationInterface $config
+     * @param ConfigurationInterface $config The configuration manager
      * @return void
      */
     public function setConfiguationHandler(ConfigurationManager $config): void;
 
     /**
+     * Returns the configuration manager if available.
      *
-     * @return ConfigurationInterface
+     * @return ConfigurationInterface|null The configuration manager or null
      */
-    public function getConfigurationHandler(): ConfigurationManager;
+    public function getConfigurationHandler(): ?ConfigurationManager;
 }
