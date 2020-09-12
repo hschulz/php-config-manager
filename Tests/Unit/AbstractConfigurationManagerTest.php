@@ -1,13 +1,15 @@
 <?php
 
-namespace hschulz\Config\Tests\Unit;
+declare(strict_types=1);
 
-use \hschulz\Config\AbstractConfigurationManager;
-use \PHPUnit\Framework\TestCase;
+namespace Hschulz\Config\Tests\Unit;
+
+use Hschulz\Config\AbstractConfigurationManager;
+use PHPUnit\Framework\TestCase;
 
 final class AbstractConfigurationManagerTest extends TestCase
 {
-    public function testConcreteImplementation()
+    public function testConcreteImplementation(): void
     {
         $stub = $this->getMockForAbstractClass(
             AbstractConfigurationManager::class,

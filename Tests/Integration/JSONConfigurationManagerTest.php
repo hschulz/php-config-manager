@@ -1,17 +1,19 @@
 <?php
 
-namespace hschulz\Config\Tests\Integration;
+declare(strict_types=1);
 
-use \hschulz\Config\JSONConfigurationManager;
-use \org\bovigo\vfs\vfsStream;
-use \PHPUnit\Framework\TestCase;
-use function \file_put_contents;
+namespace Hschulz\Config\Tests\Integration;
+
+use Hschulz\Config\JSONConfigurationManager;
+use org\bovigo\vfs\vfsStream;
+use PHPUnit\Framework\TestCase;
+use function file_put_contents;
 
 final class JSONConfigurationManagerTest extends TestCase
 {
-    protected $file = '';
+    protected string $file = '';
 
-    protected function setUp()
+    protected function setUp(): void
     {
         vfsStream::setup('integration');
 
@@ -20,12 +22,9 @@ final class JSONConfigurationManagerTest extends TestCase
         file_put_contents($this->file, '{"test":"test","isValid":true,"1":1.11}');
     }
 
-    /**
-     *
-     */
-    public function testCanReadJsonConfigFile()
+    public function testCanReadJsonConfigFile(): void
     {
-        $config = new JSONConfigurationManager($this->file, 'testing');
+        $config = new JSONConfigurationManager($this->file);
 
         $this->assertEquals('test', $config['test']);
 
@@ -34,9 +33,9 @@ final class JSONConfigurationManagerTest extends TestCase
         $this->assertEquals(1.11, $config['1']);
     }
 
-    public function testCanWriteConfigurationFile()
+    public function testCanWriteConfigurationFile(): void
     {
-        $config = new JSONConfigurationManager($this->file, 'testing');
+        $config = new JSONConfigurationManager($this->file);
 
         $config['test'] = 'test';
 
