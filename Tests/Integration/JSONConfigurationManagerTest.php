@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Hschulz\Config\Tests\Integration;
 
+use function file_put_contents;
 use Hschulz\Config\JSONConfigurationManager;
 use org\bovigo\vfs\vfsStream;
 use PHPUnit\Framework\TestCase;
-use function file_put_contents;
 
 final class JSONConfigurationManagerTest extends TestCase
 {
