@@ -1,13 +1,14 @@
 <?php
 
-namespace hschulz\Config;
+declare(strict_types=1);
+
+namespace Hschulz\Config;
 
 /**
  *
  */
 interface ConfigurationManager
 {
-
     /**
      *
      * @return string

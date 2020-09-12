@@ -1,33 +1,40 @@
 <?php
 
-namespace hschulz\Config;
+declare(strict_types=1);
 
-use \ArrayObject;
+namespace Hschulz\Config;
+
+use ArrayObject;
 
 /**
  *
  */
 abstract class AbstractConfigurationManager extends ArrayObject implements ConfigurationManager
 {
-
     /**
+     * The currently set runtime environment for reading and writing some config.
      *
      * @var string
      */
-    protected $environment = '';
+    protected string $environment = '';
 
     /**
+     * Create a new config manager for some environment identificator.
      *
-     * @param string $environment
+     * @param string $environment Whatever identificator should be used
      */
-    public function __construct(string $environment)
+    public function __construct(string $environment = '')
     {
         parent::__construct();
         $this->environment = $environment;
     }
 
     /**
+     * This is not a reliable way of making sure the config has been saved.
+     * It merely acts as last straw that migth work.
      *
+     * The register_shutdown_function might work better in case you can't be
+     * bothered to call writeConfiguration() anywhere else.
      */
     public function __destruct()
     {

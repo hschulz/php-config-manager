@@ -1,6 +1,8 @@
 <?php
 
-namespace hschulz\Config;
+declare(strict_types=1);
+
+namespace Hschulz\Config;
 
 /**
  * This interface describes the methods to get and set a configuration handler
@@ -8,7 +10,6 @@ namespace hschulz\Config;
  */
 interface Configurable
 {
-
     /**
      * Sets the configuration manager.
      *

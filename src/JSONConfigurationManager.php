@@ -1,33 +1,36 @@
 <?php
 
-namespace hschulz\Config;
+declare(strict_types=1);
 
-use \hschulz\IOStreams\FileInputStream;
-use \hschulz\IOStreams\FileOutputStream;
-use \hschulz\IOStreams\JSONInputStream;
-use \hschulz\IOStreams\JSONOutputStream;
-use \hschulz\IOStreams\WriteModes;
+namespace Hschulz\Config;
+
+use Hschulz\IOStreams\FileInputStream;
+use Hschulz\IOStreams\FileOutputStream;
+use Hschulz\IOStreams\JSONInputStream;
+use Hschulz\IOStreams\JSONOutputStream;
+use Hschulz\IOStreams\WriteMode;
 
 /**
- *
+ * Example implementation for a json based configuration store.
+ * This implementation completely disregards the environment parameter.
  */
 class JSONConfigurationManager extends AbstractConfigurationManager
 {
-
     /**
+     * The absolute path to the json file.
      *
      * @var string
      */
-    protected $file = '';
+    protected string $file = '';
 
     /**
+     * Creates a new config manager and tries to read the config file.
      *
      * @param string $file
-     * @param string $environment
      */
-    public function __construct(string $file, string $environment)
+    public function __construct(string $file)
     {
-        parent::__construct($environment);
+        parent::__construct();
         $this->file = $file;
         $this->readConfiguration();
     }
@@ -45,7 +48,7 @@ class JSONConfigurationManager extends AbstractConfigurationManager
         );
 
         $json->open();
-        $config = $json->read();
+        $config = $json->readDecoded();
         $json->close();
 
         if (!empty($config)) {
@@ -65,7 +68,7 @@ class JSONConfigurationManager extends AbstractConfigurationManager
         $json = new JSONOutputStream(
             new FileOutputStream(
                 $this->file,
-                WriteModes::MODE_OVERWRITE_CREATE
+                WriteMode::MODE_OVERWRITE_CREATE
             )
         );
 
